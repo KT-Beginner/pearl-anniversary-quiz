@@ -1,5 +1,5 @@
 /* ==========================================
-   Diane & Robert's Diamond Challenge
+   Louise & Steve's Pearl Challenge
    Version 1
 ========================================== */
 
@@ -2014,7 +2014,7 @@ body.slideshow-open {
 
 }
 /* ==========================================
-   Diane & Robert's Golden Anniversary Theme
+   Louise & Steve's Pearl Anniversary Theme
 ========================================== */
 
 :root {
@@ -2145,9 +2145,9 @@ input:focus {
 .round-photo {
     border-color: var(--gold);
 }
-/* Golden 50th Anniversary badge */
+/* Pearl 30th Anniversary badge */
 
-.golden-50-badge {
+.pearl-30-badge {
     width: 92px;
     height: 92px;
     margin: 12px auto 20px;
@@ -2170,7 +2170,7 @@ input:focus {
         inset 0 0 12px rgba(255, 255, 255, 0.8);
 }
 
-.golden-50-number {
+.pearl-30-number {
     font-family: Georgia, serif;
     font-size: 2.4rem;
     font-weight: bold;
@@ -2178,7 +2178,7 @@ input:focus {
     color: #8a6515;
 }
 
-.golden-50-years {
+.pearl-30-years {
     margin-top: 7px;
     font-size: 0.68rem;
     font-weight: bold;
@@ -2186,7 +2186,7 @@ input:focus {
     color: #8a6515;
 }
 /* ==========================================
-   Golden Anniversary round screens
+   Pearl Anniversary round screens
 ========================================== */
 
 .round-card {
@@ -2227,7 +2227,7 @@ input:focus {
         );
 }
 /* ==========================================
-   Golden Anniversary photo reveal styling
+   Pearl Anniversary photo reveal styling
 ========================================== */
 
 .image-caption.reveal-caption {
@@ -2282,7 +2282,7 @@ input:focus {
         font-style: normal;
     }
 }
-/* Golden answer buttons */
+/* Pearl answer buttons */
 
 .card .answer {
     background: linear-gradient(

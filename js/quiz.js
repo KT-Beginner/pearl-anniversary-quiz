@@ -3,7 +3,7 @@ if (sessionStorage.getItem("diamondQuizUnlocked") !== "true") {
     window.location.href = "index.html";
 }
 // ==========================================
-// Diane & Robert's Anniversary Challenge
+// Louise & Steve's Anniversary Challenge
 // Quiz Version 1
 // ==========================================
 
@@ -85,19 +85,19 @@ const roundInfo = {
     "💍 Wedding Day": {
         title: "💍 Round 1 – Wedding Day",
         photo: "images/rounds/wedding.jpg",
-        message: "Every great love story has a beginning. Let's travel back to where Diane and Robert's wonderful journey together first began."
+        message: "Every great love story has a beginning. Let's travel back to where Louise and Steve's wonderful journey together first began."
     },
 
     "👨‍👩‍👧 Family": {
         title: "👨‍👩‍👧 Round 2 – Family",
         photo: "images/rounds/family.jpg",
-        message: "Time to see how well you know Diane, Robert, their family and some trivia from over the years."
+        message: "Time to see how well you know Louise, Steve, their family and some trivia from over the years."
     },
 
     "🏖️ Holidays": {
         title: "🏖️ Round 3 – Holidays",
         photo: "images/rounds/holidays.jpg",
-        message: "Suitcases packed! Let's revisit some of Diane and Robert's holidays and adventures over the years."
+        message: "Suitcases packed! Let's revisit some of Louise and Steve's holidays and adventures over the years."
     },
 
     "📅 Guess the Year": {
@@ -123,7 +123,7 @@ const roundInfo = {
     "❤️ Diane and Robert in 2026": {
         title: "❤️ Final Round – 2026",
         photo: "images/rounds/dianerobert2026.jpg",
-        message: "The Anniversary Quiz has nearly reached the end. Just a few more questions left to celebrate an incredible 50 years of love, laughter and memories. Good luck!"
+        message: "The Anniversary Quiz has nearly reached the end. Just a few more questions left to celebrate an incredible 30 years of love, laughter and memories. Good luck!"
     }
 
 };
@@ -809,7 +809,7 @@ function showFinalScreen(silent = false) {
    if (score === questions.length) {
 
     heading = "🌟 PERFECT SCORE! 🌟";
-    message = "You really know Diane & Robert!";
+    message = "You really know Louise & Steve!";
 
 } else if (score >= 4) {
 
@@ -819,7 +819,7 @@ function showFinalScreen(silent = false) {
 } else if (score >= 3) {
 
     heading = "😊 Well Done! 😊";
-    message = "You know Diane & Robert pretty well!";
+    message = "You know Louise & Steve pretty well!";
 
 } else if (score >= 2) {
 
@@ -829,7 +829,7 @@ function showFinalScreen(silent = false) {
 } else {
 
     heading = "❤️ Thanks for Celebrating!";
-    message = "We hope you enjoyed the Golden Anniversary Challenge.";
+    message = "We hope you enjoyed the Pearl Anniversary Challenge.";
 
 }
 
@@ -872,7 +872,7 @@ congratulationsSound.onended = () => {
             <img
                 src="images/family2026.jpg"
                 class="finish-photo"
-                 alt="Diane & Robert">
+                 alt="Louise & Steve">
 
             <h1 class="finish-title">
                 🏆 Congratulations ${playerName}! 🏆
@@ -892,9 +892,9 @@ congratulationsSound.onended = () => {
 
            <p class="finish-thanks">
     🥂 Thank you for taking part in
-    <strong>Diane & Robert’s Golden Anniversary Challenge</strong>
+    <strong>Louise & Steve’s Pearl Anniversary Challenge</strong>
     and helping them celebrate
-    <strong>50 wonderful years of marriage.</strong>
+    <strong>30 wonderful years of marriage.</strong>
 </p>
 
 <p class="finish-message">
@@ -904,7 +904,7 @@ congratulationsSound.onended = () => {
 <p class="finish-footer">
     With all our love,<br>
     <strong>❤️ Dawn & Kevin ❤️</strong><br><br>
-    Golden Wedding Anniversary • 2026
+    Pearl Wedding Anniversary • 2026
 </p>
 
 <div class="finish-buttons">
@@ -960,7 +960,7 @@ printResultsButton.addEventListener("click", () => {
     };
 
     localStorage.setItem(
-        "goldenQuizResults",
+        "pearlQuizResults",
         JSON.stringify(resultsData)
     );
 
@@ -1440,7 +1440,7 @@ function showSlideshowEnding() {
             <p class="finish-message">
                 Thank you for celebrating
                 <strong>
-                    Diane & Robert's Golden Wedding
+                    Louise & Steve's Pearl Wedding
                     Anniversary
                 </strong>.
             </p>
@@ -1448,7 +1448,7 @@ function showSlideshowEnding() {
             <p class="finish-message">
                 We hope you've enjoyed looking back
                 over
-                <strong>50 wonderful years</strong>
+                <strong>30 wonderful years</strong>
                 of love, laughter and family memories.
             </p>
 

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#fff8e8">
+
+    <title>Diane & Robert’s Golden Anniversary Challenge</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+    
+
+   <h1 class="title">
+    <span class="diamond">🍾</span>
+    Diane & Robert’s Golden Anniversary Challenge
+    <span class="diamond">🍾</span>
+</h1>
+    <div class="card">
+
+        <div class="score-panel">
+
+            <span id="playerName"></span>
+
+            <span id="score">⭐ Score: 0</span>
+
+        </div>
+
+        <div class="progress-bar">
+            <div id="progress"></div>
+        </div>
+
+        <h2 id="questionNumber"></h2>
+        
+<div id="photoFrame" class="photo-frame">
+
+    <img
+        id="questionImage"
+        class="question-image"
+        style="display:none;"
+        alt="Question image">
+
+    <video
+        id="questionVideo"
+        class="question-image"
+        style="display:none;"
+        playsinline
+        disablePictureInPicture>
+    </video>
+
+    <p
+        id="imageCaption"
+        class="image-caption">
+    </p>
+
+</div>
+
+<h1 id="question"></h1>
+
+<button id="playClip" class="start-btn" style="display:none;">
+    ▶️ Play Clip
+</button>
+
+<p id="feedback"></p>
+
+<button id="nextQuestion" class="start-btn" style="display:none;">
+    Next Question ▶
+</button>
+
+        <button class="answer"></button>
+        <button class="answer"></button>
+        <button class="answer"></button>
+        <button class="answer"></button>
+
+    </div>
+
+    <!-- Image popup -->
+
+    <div id="imageModal" class="image-modal">
+
+        <span id="closeModal">&times;</span>
+
+        <img
+            id="modalImage"
+            class="modal-image">
+
+    </div>
+<div id="roundOverlay" class="round-overlay">
+
+    <div class="round-card">
+
+        <h1 id="roundTitle"></h1>
+
+        <img id="roundPhoto" class="round-photo">
+
+        <p id="roundMessage"></p>
+
+        <button id="continueRound" class="start-btn">
+            ▶ Continue
+        </button>
+
+    </div>
+
+</div>
+
+<!-- Slideshow -->
+<div id="slideshow" class="hidden">
+    <div class="slideshow-viewer">
+
+        <img
+            id="slideshow-image"
+            src=""
+            alt="Diane and Robert family memories"
+        >
+
+        <div id="slideshowControls" class="slideshow-controls">
+
+            <button
+                id="closeSlideshow"
+                class="slideshow-close"
+                aria-label="Close slideshow"
+            >
+                ✕
+            </button>
+
+            <button
+                id="previousSlide"
+                class="slideshow-arrow slideshow-previous"
+                aria-label="Previous photo"
+            >
+                ❮
+            </button>
+
+            <button
+                id="nextSlide"
+                class="slideshow-arrow slideshow-next"
+                aria-label="Next photo"
+            >
+                ❯
+            </button>
+
+            <button
+                id="pauseSlideshow"
+                class="slideshow-pause"
+            >
+                ⏸ Pause
+            </button>
+
+        </div>
+
+    </div>
+</div>
+
+    <script src="js/questions.js"></script>
+    <script src="js/quiz.js"></script>
+
+</body>
+
+</html>

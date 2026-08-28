@@ -426,21 +426,25 @@ input {
     animation-delay:1.5s;
 }
 
-@keyframes diamondGlow{
+@keyframes diamondGlow {
 
-    0%,100%{
-        transform:scale(1);
-        filter:brightness(1);
+    0%,100% {
+        transform: scale(1);
+        filter:
+            brightness(1)
+            drop-shadow(0 0 2px #ffffff)
+            drop-shadow(0 0 5px #d9d0e8)
+            drop-shadow(0 0 8px #cbdde5);
     }
 
-    50%{
-    transform:scale(1.05);
-    filter:
-        brightness(1.15)
-        drop-shadow(0 0 4px #d4af37)
-        drop-shadow(0 0 7px #c9a227);
-}
-
+    50% {
+        transform: scale(1.05);
+        filter:
+            brightness(1.15)
+            drop-shadow(0 0 4px #ffffff)
+            drop-shadow(0 0 7px #d9d0e8)
+            drop-shadow(0 0 10px #cbdde5);
+    }
 }
 /* ======================
    Round Introduction
@@ -1458,15 +1462,15 @@ img {
 .correct-text {
     display: inline-block;
     font-weight: bold;
-    color: #d4af37;
+    color: #73787d;
 
     background: linear-gradient(
         100deg,
-        #d4af37 0%,
-        #e5c85c 45%,
-        #fff8d6 50%,
-        #e5c85c 55%,
-        #d4af37 100%
+        #777b80 0%,
+        #c9d8df 35%,
+        #f5edf4 50%,
+        #d9d0e8 65%,
+        #777b80 100%
     );
 
     background-size: 300% 100%;
@@ -2018,18 +2022,24 @@ body.slideshow-open {
 ========================================== */
 
 :root {
-    --gold-deep: #8a6515;
-    --gold: #c9a227;
-    --gold-light: #e7d48b;
-    --champagne: #f6eed8;
-    --ivory: #fffdf7;
-    --warm-text: #5a4632;
+    --gold-deep: #62666b;
+    --gold: #aeb4ba;
+    --gold-light: #d9dde1;
+    --champagne: #f1eee8;
+    --ivory: #fffefa;
+    --warm-text: #4f5154;
 }
 
 /* Main page background */
 body {
     background:
-        linear-gradient(135deg, #fffdf7, #f3e8c8);
+        linear-gradient(
+            135deg,
+            #fffdfb 0%,
+            #f7f0f4 30%,
+            #eef4f5 60%,
+            #f5f1ea 100%
+        );
     color: var(--warm-text);
 }
 
@@ -2037,8 +2047,15 @@ body {
 .container,
 .card,
 .round-card {
-    background: var(--ivory);
-    border-color: var(--gold);
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #fbf8fa 40%,
+            #f3f7f8 100%
+        );
+
+    border-color: #b9bec3;
 }
 
 /* Main headings */
@@ -2062,41 +2079,41 @@ body {
 
 /* Progress bar */
 .progress-bar {
-    background: #e5dfd0;
+    background: #e7e8e9;
 }
 
 #progress {
-    background:
-        linear-gradient(
-            90deg,
-            #f6dc70,
-            #c9a227,
-            #a67c18
-        );
+    background: linear-gradient(
+        90deg,
+        #a99abc 0%,
+        #91b4c2 35%,
+        #c59fb5 65%,
+        #858b91 100%
+    );
+
+    box-shadow: 0 0 5px rgba(169, 154, 188, 0.35);
 }
 
 /* Main buttons */
 .start-btn,
 .answer,
 .card button {
-    background:
-        linear-gradient(
-            180deg,
-            #b99028,
-            #8a6515
-        );
+    background: linear-gradient(
+        180deg,
+        #aaa7a2,
+        #777572
+    );
     color: white;
 }
 
 .start-btn:hover,
 .answer:hover,
 .card button:hover {
-    background:
-        linear-gradient(
-            180deg,
-            #c9a227,
-            #9c7419
-        );
+    background: linear-gradient(
+        180deg,
+        #bbb7b1,
+        #85827e
+    );
 }
 
 /* Photograph frames */
@@ -2151,7 +2168,7 @@ input:focus {
     width: 92px;
     height: 92px;
     margin: 12px auto 20px;
-    border: 3px solid #c9a227;
+    border: 3px solid #b9bec3;
     border-radius: 50%;
 
     display: flex;
@@ -2159,15 +2176,18 @@ input:focus {
     align-items: center;
     justify-content: center;
 
-    background: linear-gradient(
-        145deg,
-        #fffdf7,
-        #f4e3a4
-    );
+   background: linear-gradient(
+    135deg,
+    #fffdfd 0%,
+    #f7edf3 22%,
+    #eef5f8 45%,
+    #f5f0f8 68%,
+    #fffdf7 100%
+);
 
     box-shadow:
-        0 4px 12px rgba(138, 101, 21, 0.22),
-        inset 0 0 12px rgba(255, 255, 255, 0.8);
+        0 4px 12px rgba(90, 96, 102, 0.20),
+        inset 0 0 14px rgba(255, 255, 255, 0.95);
 }
 
 .pearl-30-number {
@@ -2175,7 +2195,7 @@ input:focus {
     font-size: 2.4rem;
     font-weight: bold;
     line-height: 0.9;
-    color: #8a6515;
+    color: #62666b;
 }
 
 .pearl-30-years {
@@ -2183,7 +2203,7 @@ input:focus {
     font-size: 0.68rem;
     font-weight: bold;
     letter-spacing: 2px;
-    color: #8a6515;
+    color: #73787d;
 }
 /* ==========================================
    Pearl Anniversary round screens
@@ -2287,26 +2307,28 @@ input:focus {
 .card .answer {
     background: linear-gradient(
         180deg,
-        #a98224,
-        #7d5d14
+        #aaa7a2,
+        #777572
     );
 
     color: #ffffff;
-    border: 1px solid #71520f;
+    border: 1px solid #8c8985;
 }
 
 .card .answer:hover {
     background: linear-gradient(
         180deg,
-        #bd982e,
-        #8a6515
+        #bbb7b1,
+        #85827e
     );
 }
 /* Make the champagne glasses stand out */
+/* Pearlescent shimmer on champagne glasses */
 .diamond {
-    filter: drop-shadow(0 0 2px #8a6515)
-            drop-shadow(0 0 5px #c99a22)
-            drop-shadow(0 0 8px #d4af37);
+    filter:
+        drop-shadow(0 0 2px #ffffff)
+        drop-shadow(0 0 5px #d9d0e8)
+        drop-shadow(0 0 8px #cbdde5);
 }
 /* Decorative question images - keep visually small but sharp */
 .question-image.small-image {
@@ -2433,4 +2455,82 @@ input:focus {
         object-fit: contain !important;
     }
 
+}
+/* ==========================================
+   Pearl silver borders and accents
+========================================== */
+
+.hero-photo,
+.question-image,
+.round-photo,
+.finish-photo {
+    border-color: #b9bec3 !important;
+}
+
+.photo-frame {
+    border-color: #c8cdd1 !important;
+}
+
+input {
+    border-color: #c4c9cd;
+}
+
+input:focus {
+    border-color: #9fa6ac;
+    box-shadow: 0 0 0 3px rgba(174, 180, 186, 0.22);
+}
+
+.dates {
+    color: #73787d;
+}
+/* ==========================================
+   Pearl Anniversary round screens
+========================================== */
+
+.round-card {
+    background: linear-gradient(
+        145deg,
+        #ffffff 0%,
+        #fbf8fa 38%,
+        #f2f6f7 70%,
+        #f7f2f5 100%
+    );
+
+    border-color: #b9bec3;
+
+    box-shadow:
+        0 15px 40px rgba(90, 96, 102, 0.24);
+}
+
+.round-card h1 {
+    color: #5f6265;
+}
+
+.round-card p {
+    color: #55585b;
+}
+
+.round-photo {
+    border-color: #b9bec3 !important;
+
+    box-shadow:
+        0 6px 18px rgba(90, 96, 102, 0.20);
+}
+
+.round-card .start-btn {
+    background: linear-gradient(
+        180deg,
+        #aaa7a2,
+        #777572
+    );
+
+    border: 1px solid #8c8985;
+}
+
+.round-card .start-btn:hover {
+    background: linear-gradient(
+        180deg,
+        #bbb7b1,
+        #85827e
+    );
 }

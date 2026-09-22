@@ -3532,6 +3532,10 @@ canvas.addEventListener(
   event => {
     event.preventDefault();
 
+    canvas.setPointerCapture(
+      event.pointerId
+    );
+
     touchStart = {
       x: event.clientX,
       y: event.clientY

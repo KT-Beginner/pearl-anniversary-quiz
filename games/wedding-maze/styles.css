@@ -1662,4 +1662,18 @@ button {
   .game-card {
     padding: 12px;
   }
+  .wedding-memory {
+    margin: 4px auto 8px;
+  }
+
+  .wedding-memory img {
+    max-height: 34vh;
+  }
+
+  .wedding-memory figcaption {
+    margin-top: 5px;
+    padding: 4px 10px;
+    font-size: 0.85rem;
+  }
+
 }

@@ -3228,6 +3228,15 @@ ui.overlayButton.dataset.action =
     "visible"
   );
 
+  const giveUpButton =
+  document.getElementById(
+    "weddingMazeGiveUp"
+  );
+
+if (giveUpButton) {
+  giveUpButton.style.display = "none";
+}
+
   playRecordedCalypso();
 }
 

@@ -3524,6 +3524,14 @@ canvas.addEventListener(
   event => {
     event.preventDefault();
 
+    if (
+  recordedCalypso.paused &&
+  recordedCalypso.currentTime === 0
+) {
+  recordedCalypso.load();
+}
+
+
     canvas.setPointerCapture(
       event.pointerId
     );

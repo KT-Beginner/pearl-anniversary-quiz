@@ -1654,4 +1654,12 @@ button {
   .flag-badge {
     display: none;
   }
+
+  .hero {
+    margin-bottom: 6px;
+  }
+
+  .game-card {
+    padding: 12px;
+  }
 }

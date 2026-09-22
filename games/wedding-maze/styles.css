@@ -1640,8 +1640,9 @@ button {
   display: none;
 }
 /* Prevent iPhone selecting maze content while swiping */
-#gameCanvas,
-#gameCanvas * {
+.canvas-wrap,
+.canvas-wrap *,
+#gameCanvas {
     -webkit-user-select: none;
     user-select: none;
     -webkit-touch-callout: none;

@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         img.src = src;
     });
     
-   const quizPasswordHash = "1699b82c32dd7fe9a74d3c5e10942876b173233ec0386c577829f27eec5c4a34";
+   const quizPasswordHash = "4dcf32b249f87b8926f0e2798149b2797208ae69f482e6bf5f7a3aca7ed8f205";
   
    async function hashPassword(password) {
 

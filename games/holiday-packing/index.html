@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1">
+
+  <meta
+    name="theme-color"
+    content="#ce2030">
+
+  <title>Louise & Steve • 30 Years</title>
+
+  <link
+    rel="stylesheet"
+    href="styles.css">
+</head>
+
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <p class="eyebrow">
+        Louise &amp; Steve’s Pearl Anniversary
+      </p>
+
+      <h1>30 Years • 30 Adventures</h1>
+
+      <p
+        id="roundSubtitle"
+        class="subtitle">
+      </p>
+
+
+
+      <div
+        id="progress"
+        class="progress"
+        aria-label="30 round progress">
+      </div>
+    </header>
+
+    <section class="game-card">
+      <div class="hud">
+        <div>
+          <span class="label">Challenge</span>
+          <strong id="roundLabel"></strong>
+        </div>
+
+        <div>
+          <span class="label">Score</span>
+          <strong id="score">0</strong>
+        </div>
+
+        <div>
+          <span class="label">Time</span>
+
+          <strong>
+            <span id="timer">60</span>s
+          </strong>
+        </div>
+
+        <div>
+          <span
+            id="collectiblesLabel"
+            class="label">
+            Wedding items left
+          </span>
+
+          <strong id="remaining">0</strong>
+        </div>
+      </div>
+
+      <div class="canvas-wrap">
+        <canvas
+          id="gameCanvas"
+          width="720"
+          height="720"
+          aria-label="Louise and Steve anniversary maze game">
+        </canvas>
+
+
+      </div>
+
+      <section id="packingGame" class="packing-game hidden" aria-label="Suitcase packing game">
+        <div class="packing-scene">
+          <img
+            class="packing-couple"
+            src="assets/steve-louise-caricature.png"
+            alt="Louise and Steve in their wedding outfits">
+
+          <div id="packingItems" class="packing-items" aria-label="Items to pack"></div>
+
+          <div id="suitcase" class="suitcase" aria-label="Open suitcase">
+            <span class="suitcase-lid">LOUISE &amp; STEVE</span>
+            <span class="suitcase-space">Click or tap items to pack</span>
+            <div id="packedItems" class="packed-items"></div>
+          </div>
+        </div>
+            </section>
+
+      <section
+        id="wordSearchGame"
+        class="word-search-game hidden"
+        aria-label="Family word search">
+
+        <div class="word-search-layout">
+          <div
+            id="wordSearchGrid"
+            class="word-search-grid"
+            aria-label="Word-search letter grid">
+          </div>
+
+          <aside class="word-list">
+            <h3>Find these names</h3>
+
+            <div id="wordSearchWords"></div>
+          </aside>
+        </div>
+
+                <p class="word-search-help">
+          Drag across the letters from the first letter to the last.
+        </p>
+      </section>
+
+      <section
+        id="pairsGame"
+        class="pairs-game hidden"
+        aria-label="Photograph pairs game">
+
+        <div
+          id="pairsGrid"
+          class="pairs-grid"
+          aria-label="Sixteen memory cards">
+        </div>
+
+        <p class="pairs-help">
+          Select two cards to find a matching pair.
+        </p>
+      </section>
+
+      <section
+        id="celebrationPopGame"
+        class="celebration-pop-game hidden"
+        aria-label="Celebration popping game">
+
+        <div
+          id="celebrationPopArea"
+          class="celebration-pop-area"
+          aria-label="Pop the floating celebration objects">
+
+          <div class="celebration-banner">
+            <strong>Celebration score</strong>
+
+            <span>
+              <span id="celebrationScore">0</span>
+              /
+              <span id="celebrationTarget">300</span>
+            </span>
+          </div>
+        </div>
+
+        <p class="celebration-pop-help">
+          Tap balloons, hearts, bubbles and golden 30s—avoid the rain clouds!
+        </p>
+      </section>
+
+
+
+      <section
+        id="photoPuzzleGame"
+        class="photo-puzzle-game hidden"
+        aria-label="Jamaica photograph puzzle">
+
+        <div class="photo-puzzle-layout">
+          <div>
+            <div
+              id="photoPuzzleGrid"
+              class="photo-puzzle-grid"
+              aria-label="Shuffled photograph pieces">
+            </div>
+
+            <p class="photo-puzzle-help">
+              Select one piece, then select another to swap them.
+            </p>
+          </div>
+
+          <aside class="photo-preview-card">
+            <h3>Picture to rebuild</h3>
+
+            <img
+              id="photoPuzzlePreview"
+              src="assets/jamaica-pearl-anniversary.png"
+              alt="Completed Jamaica pearl-anniversary photograph">
+
+            <p>
+              Jamaica, 2026<br>
+              <strong>30 Years Together</strong>
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <div
+        id="collectionMessage"
+        class="collection-message"
+        aria-live="polite">
+        Collect everything needed for the wedding!
+      </div>
+
+
+      <div class="actions">
+        <button
+          id="startButton"
+          class="primary">
+          Start round
+        </button>
+
+        
+      </div>
+
+      <p id="controlHint" class="hint">
+  Arrow keys or WASD on a computer • swipe across the maze on a phone
+</p>
+    </section>
+  </main>
+
+  <div
+    id="overlay"
+    class="overlay visible"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="overlayTitle">
+
+    <div class="overlay-card">
+      <div
+        class="postcard-stamp"
+        aria-hidden="true">
+
+        30<br>
+        <small>YEARS</small>
+      </div>
+
+      <p
+        id="overlayEyebrow"
+        class="eyebrow">
+      </p>
+
+      <h2 id="overlayTitle"></h2>
+
+<img
+  id="overlayCouple"
+  class="overlay-couple"
+  src="assets/steve-louise-caricature.png"
+  alt="Caricature of Louise and Steve running to their wedding">
+
+<figure
+  id="weddingMemory"
+  class="wedding-memory hidden">
+
+  <img
+    src="assets/wedding-photo.jpg"
+    alt="Louise and Steve on their wedding day in Antigua">
+
+  <figcaption>
+    Antigua — 9th October 1996
+  </figcaption>
+
+  
+</figure>
+
+<p id="overlayText"></p>
+
+      <button
+        id="overlayStart"
+        class="primary">
+      </button>
+    </div>
+  </div>
+
+  <script src="rounds.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

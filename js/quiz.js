@@ -12,9 +12,15 @@ const playerName = localStorage.getItem("playerName") || "Guest";
 
 // Quiz state - restore progress after an accidental refresh
 
-let currentQuestion = Number(sessionStorage.getItem("quizCurrentQuestion")) || 0;
+let currentQuestion = Number(sessionStorage.getItem("quizCurrentQuestion")) || 22;
 
 let score = Number(sessionStorage.getItem("quizScore")) || 0;
+
+let cocktails =
+    Number(sessionStorage.getItem("pearlCocktails")) || 0;
+
+let coconuts =
+    Number(sessionStorage.getItem("pearlCoconuts")) || 0;
 
 let currentRound = "";
 
@@ -36,6 +42,21 @@ const feedback = document.getElementById("feedback");
 const progress = document.getElementById("progress");
 const playClip = document.getElementById("playClip");
 const nextQuestion = document.getElementById("nextQuestion");
+const comparePhotos = document.getElementById("comparePhotos");
+
+comparePhotos.addEventListener("click", () => {
+    const q = questions[currentQuestion];
+
+    if (!q.allowPhotoComparison) return;
+
+    if (questionImage.src.endsWith(q.revealImage)) {
+        questionImage.src = q.image;
+        comparePhotos.textContent = "📷 Show Answer Photos";
+    } else {
+        questionImage.src = q.revealImage;
+        comparePhotos.textContent = "📷 Show Question Photos Again";
+    }
+});
 
 
 const buttons = document.querySelectorAll(".answer");
@@ -43,7 +64,7 @@ const correctSound = new Audio("sounds/correct.mp3");
 const wrongSound = new Audio("sounds/wrong.mp3");
 
 const congratulationsSound =
-    new Audio("sounds/congratulations.mp3");
+    new Audio("sounds/jamaica-celebration.mp3");
     
 const cheerSound =
     new Audio("sounds/cheer.mp3");
@@ -82,8 +103,8 @@ const roundMessage = document.getElementById("roundMessage");
 const continueRound = document.getElementById("continueRound");
 const roundInfo = {
 
-    "💍 Wedding Day": {
-        title: "💍 Round 1 – Wedding Day",
+    "💍 Antigua Wedding": {
+        title: "💍 Round 1 – Antigua Wedding",
         photo: "images/rounds/wedding.jpg",
         message: "Every great love story has a beginning. Let's travel back to where Louise and Steve's wonderful journey together first began."
     },
@@ -91,7 +112,7 @@ const roundInfo = {
     "👨‍👩‍👧 Family": {
         title: "👨‍👩‍👧 Round 2 – Family",
         photo: "images/rounds/family.jpg",
-        message: "Time to see how well you know Louise, Steve, their family and some trivia from over the years."
+        message: "Time to see how well you know Louise, Steve and their family."
     },
 
     "🏖️ Holidays": {
@@ -120,9 +141,9 @@ const roundInfo = {
     photo: "images/rounds/whatnext.jpg",
     message: "Can you guess what happens next?"
 },
-    "❤️ Diane and Robert in 2026": {
-        title: "❤️ Final Round – 2026",
-        photo: "images/rounds/dianerobert2026.jpg",
+    "❤️ Louise and Steve in 2026": {
+        title: "❤️ Final Round",
+        photo: "images/rounds/louisesteve.jpg",
         message: "The Anniversary Quiz has nearly reached the end. Just a few more questions left to celebrate an incredible 30 years of love, laughter and memories. Good luck!"
     }
 
@@ -138,14 +159,14 @@ function showRound(round) {
 
     roundTitle.textContent = info.title;
 
-   if (round === "💍 Wedding Day") {
+   if (round === "💍 Antigua Wedding") {
 
     roundPhoto.className = "round-photo portrait-round";
 
 } else if (
     round === "👨‍👩‍👧 Family" ||
     round === "🏖️ Holidays" ||
-    round === "❤️ Diane and Robert in 2026"
+    round === "❤️ Louise and Steve in 2026"
 ) {
 
     roundPhoto.className = "round-photo round-5-4";
@@ -163,8 +184,41 @@ function showRound(round) {
 }
 
 continueRound.addEventListener("click", () => {
-    roundOverlay.style.display = "none";
-    document.body.style.overflow = "auto";
+
+    
+
+   if (
+    currentRound === "💍 Antigua Wedding" &&
+    !sessionStorage.getItem("pearlWeddingMazeResult")
+) {
+    sessionStorage.removeItem(
+        "pearlWeddingMazeTimedOut"
+    );
+
+    window.location.href =
+        "games/wedding-maze/index.html";
+
+    return;
+}
+
+    if (
+    currentRound === "👨‍👩‍👧 Family" &&
+    !sessionStorage.getItem("pearlFamilyWordSearchResult")
+) {
+    sessionStorage.removeItem(
+        "pearlFamilyWordSearchTimedOut"
+    );
+
+    window.location.href =
+        "games/family-wordsearch/index.html";
+
+    return;
+}
+
+
+roundOverlay.style.display = "none";
+document.body.style.overflow = "auto";
+
     displayQuestion();
 });
 const preloadedMedia = [];
@@ -268,17 +322,46 @@ function displayQuestion() {
 
    
     player.textContent = `👤 ${playerName}`;
-    scoreText.textContent = `⭐ Score: ${score}`;
+    scoreText.textContent =
+    `🍹 ${cocktails} ${cocktails === 1 ? "Cocktail" : "Cocktails"} · 🥥 ${coconuts} ${coconuts === 1 ? "Coconut" : "Coconuts"}`;
 
-    questionNumber.textContent =
-        `Question ${currentQuestion + 1} of ${questions.length}`;
+    let challengeNumber =
+    currentQuestion + 2;
+
+// Family Word Search comes before question index 2
+if (currentQuestion >= 2) {
+    challengeNumber++;
+}
+
+// Timeline comes before question index 15
+if (currentQuestion >= 15) {
+    challengeNumber++;
+}
+
+// Pairs comes before question index 21
+if (currentQuestion >= 21) {
+    challengeNumber++;
+}
+
+if (
+    sessionStorage.getItem(
+        "pearlJamaicaJigsawResult"
+    ) &&
+    currentQuestion === questions.length - 1
+) {
+    challengeNumber++;
+}
+
+questionNumber.textContent =
+    `Challenge ${challengeNumber} of 30`;
 
     question.textContent = q.question;
 question.style.display = "block";
 
-feedback.textContent = "";
-feedback.style.display = "block";
+    feedback.textContent = "";
+    feedback.style.display = "block";
     nextQuestion.style.display = "none";
+    comparePhotos.style.display = "none";
     playClip.style.display = "none";
     playClip.disabled = false;
     playClip.textContent = "▶️ Play Clip";
@@ -479,10 +562,17 @@ const correct = questions[currentQuestion].correct;
     if (!wasAlreadyAnswered) {
 
 score++;
+cocktails++;
+
+sessionStorage.setItem(
+    "pearlCocktails",
+    cocktails
+);
 
 }
     button.style.background = "green";
-   feedback.innerHTML = '<span class="green-tick">✅</span> <span class="correct-text">Correct!</span>';
+   feedback.innerHTML =
+    '<span class="green-tick">🍹</span> <span class="correct-text">Cocktail earned! Cheers!</span>';
 
     showCorrectSparkles();
 
@@ -491,9 +581,21 @@ score++;
 
 } else {
 
+    if (!wasAlreadyAnswered) {
+
+        coconuts++;
+
+        sessionStorage.setItem(
+            "pearlCoconuts",
+            coconuts
+        );
+
+    }
+
     button.style.background = "red";
     buttons[correct].style.background = "green";
-    feedback.textContent = "❌ Not quite!";
+    feedback.textContent =
+    "🥥 Coconut collected! Not quite — but you're still in the game!";
 
     wrongSound.currentTime = 0;
     wrongSound.play();
@@ -590,11 +692,37 @@ questionImage.style.display = "block";
     imageCaption.style.display = "none";
 }
 
-       showNextButton();
+      if (
+    q.videoBeforeAnswerAudio &&
+    q.audioAnswer &&
+    questionVideo.src.includes(q.revealVideo)
+) {
+
+    const revealAudio =
+        new Audio(q.audioAnswer);
+
+    revealAudio.addEventListener(
+        "ended",
+        () => {
+            showNextButton();
+        }
+    );
+
+    revealAudio.play().catch(() => {
+        showNextButton();
+    });
+
+} else {
+
+    showNextButton();
+}
 
         playClip.style.display = "inline-block";
         playClip.disabled = false;
-    playClip.textContent = "▶️ Play Again";
+    playClip.textContent =
+    q.fullRevealVideo
+        ? "▶️ Play Full Clip"
+        : "▶️ Play Again";
 
 playClip.onclick = () => {
 
@@ -602,6 +730,16 @@ playClip.onclick = () => {
 
     questionImage.style.display = "none";
     questionVideo.style.display = "block";
+
+    // This question can use a different,
+    // longer video for the replay.
+    if (q.fullRevealVideo) {
+        questionVideo.src =
+            q.fullRevealVideo;
+    } else {
+        questionVideo.src =
+            q.revealVideo;
+    }
 
     questionVideo.currentTime = 0;
     questionVideo.play();
@@ -622,6 +760,10 @@ playClip.onclick = () => {
 questionImage.classList.remove("small-image");
 questionImage.style.display = "block";
 questionImage.src = q.revealImage || q.image;
+if (q.allowPhotoComparison) {
+    comparePhotos.style.display = "inline-block";
+    comparePhotos.textContent = "📷 Show Question Photos Again";
+}
 
    if (q.photoTitle || q.photoText || q.caption) {
 
@@ -643,7 +785,8 @@ questionImage.src = q.revealImage || q.image;
     }
 }
 }, 1200);
-        scoreText.textContent = `⭐ Score: ${score}`;
+        scoreText.textContent =
+    `🍹 ${cocktails} Cocktails · 🥥 ${coconuts} Coconuts`;
         
         // Play question audio, if one has been provided
 const answerAudio =
@@ -669,21 +812,65 @@ function moveToNextQuestion() {
 
     sessionStorage.setItem("quizCurrentQuestion", currentQuestion);
 
-if (currentQuestion < questions.length) {
+    if (
+    currentRound === "📅 Guess the Year" &&
+    (
+        currentQuestion >= questions.length ||
+        questions[currentQuestion].round !== "📅 Guess the Year"
+    ) &&
+    !sessionStorage.getItem("pearlTimelineResult")
+) {
+
+    window.location.href =
+        "games/timeline/index.html";
+
+    return;
+}
+if (
+    currentRound === "✅ True or False" &&
+    (
+        currentQuestion >= questions.length ||
+        questions[currentQuestion].round !== "✅ True or False"
+    ) &&
+    !sessionStorage.getItem("pearlPairsResult")
+) {
+
+    window.location.href =
+        "games/pairs/index.html";
+
+    return;
+}
+if (
+    currentQuestion === questions.length - 1 &&
+    !sessionStorage.getItem(
+        "pearlJamaicaJigsawResult"
+    )
+) {
+
+    window.location.href =
+        "games/jamaica-jigsaw/index.html";
+
+    return;
+}
+
+    if (currentQuestion < questions.length) {
+
     loadQuestion();
-        } else {
-            card.classList.remove("fade-out");
-            card.classList.remove("fade-in");
-            showFinalScreen();
-        }
-   
+
+} else {
+
+    card.classList.remove("fade-out");
+    card.classList.remove("fade-in");
+    showFinalScreen();
+}
+
 }
 nextQuestion.onclick = () => {
     nextQuestion.style.display = "none";
     moveToNextQuestion();
 };
 
-if (answerAudio) {
+if (answerAudio && !q.videoBeforeAnswerAudio) {
     const revealAudio = new Audio(answerAudio);
 
     revealAudio.addEventListener("ended", () => {
@@ -806,29 +993,29 @@ function showFinalScreen(silent = false) {
     let heading = "";
     let message = "";
 
-   if (score === questions.length) {
+   if (cocktails === 30 && coconuts === 0) {
 
-    heading = "🌟 PERFECT SCORE! 🌟";
+    heading = "🎉 Don't drink all your cocktails at once!🎉";
     message = "You really know Louise & Steve!";
 
-} else if (score >= 4) {
+} else if (cocktails >= 25) {
 
     heading = "🎉 Excellent! 🎉";
     message = "What a fantastic score!";
 
-} else if (score >= 3) {
+} else if (cocktails >= 20) {
 
     heading = "😊 Well Done! 😊";
     message = "You know Louise & Steve pretty well!";
 
-} else if (score >= 2) {
+} else if (cocktails >= 10) {
 
     heading = "👏 Thanks for Playing!";
     message = "Every memory is special.";
 
 } else {
 
-    heading = "❤️ Thanks for Celebrating!";
+    heading = "🤍 Thanks for Celebrating!";
     message = "We hope you enjoyed the Pearl Anniversary Challenge.";
 
 }
@@ -870,16 +1057,16 @@ congratulationsSound.onended = () => {
         <div class="finish-screen">
 
             <img
-                src="images/family2026.jpg"
+                src="images/finalscreen.jpg"
                 class="finish-photo"
                  alt="Louise & Steve">
 
             <h1 class="finish-title">
-                🏆 Congratulations ${playerName}! 🏆
+                🤍 Congratulations ${playerName}! 🤍
             </h1>
 
             <div class="finish-score">
-                ⭐ ${score} / ${questions.length} ⭐
+                🍹 ${cocktails} ${cocktails === 1 ? "Cocktail" : "Cocktails"} · 🥥 ${coconuts} ${coconuts === 1 ? "Coconut" : "Coconuts"}
             </div>
 
             <h2 class="finish-heading">
@@ -1541,22 +1728,278 @@ sessionStorage.removeItem("quizPlayerAnswers");
         );
 }
 
+const jamaicaJigsawResult =
+    sessionStorage.getItem(
+        "pearlJamaicaJigsawResult"
+    );
+
+const jamaicaJigsawCounted =
+    sessionStorage.getItem(
+        "pearlJamaicaJigsawCounted"
+    ) === "true";
+
+if (
+    jamaicaJigsawResult &&
+    !jamaicaJigsawCounted
+) {
+
+    if (jamaicaJigsawResult === "cocktail") {
+
+        cocktails++;
+
+    } else if (
+        jamaicaJigsawResult === "coconut"
+    ) {
+
+        coconuts++;
+    }
+
+    sessionStorage.setItem(
+        "pearlCocktails",
+        cocktails
+    );
+
+    sessionStorage.setItem(
+        "pearlCoconuts",
+        coconuts
+    );
+
+    sessionStorage.setItem(
+        "pearlJamaicaJigsawCounted",
+        "true"
+    );
+}
+
 // Start the quiz
 
 if (currentQuestion >= questions.length) {
 
-const restoringSlideshow = sessionStorage.getItem("slideshowActive") === "true";
+    const restoringSlideshow =
+        sessionStorage.getItem("slideshowActive") === "true";
 
-showFinalScreen(restoringSlideshow);
+    showFinalScreen(restoringSlideshow);
 
-if (restoringSlideshow) {
-
-restoreSlideshow();
-
-}
+    if (restoringSlideshow) {
+        restoreSlideshow();
+    }
 
 } else {
 
+const timelineResult =
+    sessionStorage.getItem(
+        "pearlTimelineResult"
+    );
+
+const timelineCounted =
+    sessionStorage.getItem(
+        "pearlTimelineCounted"
+    ) === "true";
+
+if (
+    timelineResult &&
+    !timelineCounted
+) {
+
+    if (timelineResult === "cocktail") {
+        cocktails++;
+    } else if (timelineResult === "coconut") {
+        coconuts++;
+    }
+
+    sessionStorage.setItem(
+        "pearlCocktails",
+        cocktails
+    );
+
+    sessionStorage.setItem(
+        "pearlCoconuts",
+        coconuts
+    );
+
+    sessionStorage.setItem(
+        "pearlTimelineCounted",
+        "true"
+    );
+
+    currentRound =
+        questions[currentQuestion].round;
+}
+
+const pairsResult =
+    sessionStorage.getItem(
+        "pearlPairsResult"
+    );
+
+const pairsCounted =
+    sessionStorage.getItem(
+        "pearlPairsCounted"
+    ) === "true";
+
+if (
+    pairsResult &&
+    !pairsCounted
+) {
+
+    if (pairsResult === "cocktail") {
+        cocktails++;
+    } else if (pairsResult === "coconut") {
+        coconuts++;
+    }
+
+    sessionStorage.setItem(
+        "pearlCocktails",
+        cocktails
+    );
+
+    sessionStorage.setItem(
+        "pearlCoconuts",
+        coconuts
+    );
+
+    sessionStorage.setItem(
+        "pearlPairsCounted",
+        "true"
+    );
+
+    currentRound =
+        questions[currentQuestion].round;
+}
+
+const familyWordSearchResult =
+    sessionStorage.getItem(
+        "pearlFamilyWordSearchResult"
+    );
+
+const familyWordSearchCounted =
+    sessionStorage.getItem(
+        "pearlFamilyWordSearchCounted"
+    ) === "true";
+
+if (
+    familyWordSearchResult &&
+    !familyWordSearchCounted
+) {
+
+    if (familyWordSearchResult === "cocktail") {
+        cocktails++;
+    } else if (familyWordSearchResult === "coconut") {
+        coconuts++;
+    }
+
+    sessionStorage.setItem(
+        "pearlCocktails",
+        cocktails
+    );
+
+    sessionStorage.setItem(
+        "pearlCoconuts",
+        coconuts
+    );
+
+    sessionStorage.setItem(
+        "pearlFamilyWordSearchCounted",
+        "true"
+    );
+
+    currentRound = questions[currentQuestion].round;
+}
+
+const weddingMazeResult =
+    sessionStorage.getItem(
+        "pearlWeddingMazeResult"
+    );
+
+const weddingMazeCounted =
+    sessionStorage.getItem(
+        "pearlWeddingMazeCounted"
+    ) === "true";
+
+if (
+    weddingMazeResult &&
+    currentQuestion === 0
+) {
+
+    if (!weddingMazeCounted) {
+
+        if (weddingMazeResult === "cocktail") {
+            cocktails++;
+        } else if (weddingMazeResult === "coconut") {
+            coconuts++;
+        }
+
+        sessionStorage.setItem(
+            "pearlCocktails",
+            cocktails
+        );
+
+        sessionStorage.setItem(
+            "pearlCoconuts",
+            coconuts
+        );
+
+        sessionStorage.setItem(
+            "pearlWeddingMazeCounted",
+            "true"
+        );
+    }
+
+    currentRound =
+        questions[currentQuestion].round;
+
+    displayQuestion();
+
+
+} else if (
+    familyWordSearchResult &&
+    familyWordSearchCounted &&
+    currentQuestion === 3
+) {
+
+    currentRound = questions[currentQuestion].round;
+    displayQuestion();
+
+
+} else if (
+    timelineResult &&
+    sessionStorage.getItem(
+        "pearlTimelineCounted"
+    ) === "true" &&
+    currentQuestion === 12
+) {
+
+    currentRound =
+        questions[currentQuestion].round;
+
+    showRound(currentRound);
+
+} else if (
+    pairsResult &&
+    sessionStorage.getItem(
+        "pearlPairsCounted"
+    ) === "true" &&
+    currentQuestion === 19
+) {
+
+    currentRound =
+        questions[currentQuestion].round;
+
+    showRound(currentRound);
+
+
+} else if (
+    jamaicaJigsawResult &&
+    sessionStorage.getItem(
+        "pearlJamaicaJigsawCounted"
+    ) === "true"
+) {
+
+    currentRound =
+        questions[currentQuestion].round;
+
+    displayQuestion();
+
+} else {
     loadQuestion();
-  
+}
+
 }

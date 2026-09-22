@@ -1,0 +1,332 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #4f5154;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffefa 0%,
+            #f1eee8 35%,
+            #edf2f6 68%,
+            #f4edf4 100%
+        );
+}
+
+.app-shell {
+    width: min(100% - 24px, 1050px);
+    margin: 0 auto;
+    padding: 28px 0 45px;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.eyebrow {
+    margin: 0 0 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #62666b;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    line-height: 1.15;
+}
+
+.subtitle {
+    margin: 10px 0 0;
+    font-size: 1.05rem;
+}
+
+.game-card {
+    padding: 24px;
+    border: 1px solid #d9dde1;
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.96),
+            rgba(241, 238, 232, 0.92)
+        );
+
+    box-shadow:
+        0 12px 35px rgba(79, 81, 84, 0.13);
+}
+
+.photo-puzzle-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 220px;
+    gap: 24px;
+    align-items: start;
+}
+
+/* ==============================
+   12-piece jigsaw
+   4 columns × 3 rows
+   ============================== */
+
+.photo-puzzle-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    width: 100%;
+    max-width: 720px;
+    aspect-ratio: 4 / 3;
+
+    margin: 0 auto;
+
+    border: 4px solid #aeb4ba;
+    border-radius: 14px;
+    overflow: hidden;
+
+    background: #d9dde1;
+}
+
+.puzzle-piece {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    border: 1px solid rgba(255, 255, 255, 0.65);
+
+    background-image:
+        url("assets/jamaica-pearl-anniversary.png");
+
+    background-repeat: no-repeat;
+    background-size: 400% 300%;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        filter 0.15s ease;
+}
+
+.puzzle-piece:hover {
+    filter: brightness(1.06);
+}
+
+.puzzle-piece.selected {
+    z-index: 2;
+
+    box-shadow:
+        inset 0 0 0 5px #f0c94d;
+
+    transform: scale(0.96);
+}
+
+.puzzle-piece.correct {
+    box-shadow:
+        inset 0 0 0 4px #4caf50;
+}
+
+.puzzle-piece.wrong {
+    box-shadow:
+        inset 0 0 0 4px #d9534f;
+}
+/* Hide the piece lines once the jigsaw is complete */
+.photo-puzzle-grid.completed .puzzle-piece {
+    border: none;
+}
+.photo-puzzle-help {
+    min-height: 24px;
+    margin: 14px 0 0;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* ==============================
+   Preview
+   ============================== */
+
+.photo-preview-card {
+    padding: 14px;
+
+    border: 1px solid #d9dde1;
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.78);
+
+    text-align: center;
+}
+
+.photo-preview-card h3 {
+    margin: 0 0 12px;
+}
+
+.photo-preview-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 5px 16px rgba(79, 81, 84, 0.16);
+}
+
+.photo-preview-card p {
+    margin: 12px 0 0;
+    line-height: 1.45;
+}
+
+/* ==============================
+   Buttons
+   ============================== */
+
+.actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-top: 24px;
+}
+
+button {
+    font: inherit;
+}
+
+.primary,
+.secondary {
+    min-height: 48px;
+    padding: 11px 22px;
+
+    border-radius: 999px;
+
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.primary {
+    border: 1px solid #8f969c;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d9dde1,
+            #fffefa
+        );
+
+    color: #3f4245;
+}
+
+.secondary {
+    border: 1px solid #c7cbd0;
+    background: #fffefa;
+    color: #62666b;
+}
+
+.primary:hover,
+.secondary:hover {
+    transform: translateY(-1px);
+}
+
+.primary:disabled,
+.secondary:disabled {
+    cursor: default;
+    opacity: 0.55;
+    transform: none;
+}
+
+/* ==============================
+   Hint and result
+   ============================== */
+
+.hint {
+    max-width: 760px;
+    margin: 18px auto 0;
+
+    text-align: center;
+    line-height: 1.5;
+    color: #62666b;
+}
+
+.result-panel {
+    margin-top: 22px;
+    padding: 22px;
+
+    border: 1px solid #d9dde1;
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.88);
+
+    text-align: center;
+
+    box-shadow:
+        0 8px 24px rgba(79, 81, 84, 0.1);
+}
+
+.result-panel h2 {
+    margin-top: 0;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ==============================
+   Mobile
+   ============================== */
+
+@media (max-width: 700px) {
+
+    .app-shell {
+        width: min(100% - 16px, 1050px);
+        padding-top: 18px;
+    }
+
+    .game-card {
+        padding: 14px;
+        border-radius: 18px;
+    }
+
+    .photo-puzzle-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .photo-puzzle-layout > div {
+        width: 100%;
+    }
+
+    .photo-puzzle-grid {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .photo-preview-card {
+        width: min(100%, 300px);
+        margin: 0 auto;
+    }
+
+    .actions {
+        margin-top: 18px;
+    }
+
+    .primary,
+    .secondary {
+        width: 100%;
+    }
+}
+.jamaica-flag {
+    width: 48px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 10px;
+    border-radius: 4px;
+}

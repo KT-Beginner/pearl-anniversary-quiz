@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <title>Challenge 24 - Pairs</title>
+
+    <link
+        rel="stylesheet"
+        href="styles.css"
+    >
+</head>
+
+<body>
+
+    <main class="pairs-page">
+
+        <header class="pairs-header">
+
+            <p class="eyebrow">
+                Challenge 25 of 30
+            </p>
+
+            <h1>📸 Family Photo Pairs</h1>
+
+            <p class="subtitle">
+                Find all eight matching photograph pairs before the time runs out
+            </p>
+
+        </header>
+
+        <section class="pairs-card">
+
+            <div
+                id="pairsGrid"
+                class="pairs-grid"
+                aria-label="Sixteen memory cards"
+            ></div>
+
+            <p
+                id="pairsMessage"
+                class="pairs-message"
+            >
+                Select two cards to find a matching pair.
+            </p>
+
+            <div class="pairs-status">
+
+                <span>
+                    Pairs remaining:
+                    <strong id="pairsRemaining">8</strong>
+                </span>
+
+                <span>
+                    Time:
+                    <strong id="timer">60</strong>s
+                </span>
+
+            </div>
+
+            <div class="actions">
+
+                <button
+                    id="giveUpButton"
+                    class="secondary"
+                    type="button"
+                >
+                    Give Up 🥥
+                </button>
+
+            </div>
+
+            
+        </section>
+
+        <section
+            id="resultPanel"
+            class="result-panel hidden"
+        >
+
+            <h2 id="resultTitle"></h2>
+
+            <p id="resultText"></p>
+
+            <button
+                id="continueButton"
+                class="primary"
+                type="button"
+            >
+                Continue Challenge ➜
+            </button>
+
+        </section>
+
+    </main>
+
+    <script src="game.js"></script>
+
+</body>
+
+</html>

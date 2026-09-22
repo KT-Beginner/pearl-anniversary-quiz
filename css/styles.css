@@ -316,9 +316,9 @@ input {
 
 .finish-score{
     text-align:center;
-    font-size:3rem;
+    font-size:2rem;
     font-weight:bold;
-    color:#d4af37;
+    color:var(--gold-deep);
     margin:20px 0;
 }
 
@@ -2133,7 +2133,7 @@ body {
 
 /* Replace little decorative diamond on captions */
 .photo-frame .image-caption::before {
-    content: "✨";
+    display: none;
 }
 
 /* Password screen */
@@ -2287,7 +2287,7 @@ input:focus {
 
 /* Change the scrapbook diamond to a gold sparkle */
 .photo-frame .image-caption::before {
-    content: "✨";
+    display: none;
 }
 
 /* Keep the sparkle out of the way on phones */
@@ -2392,7 +2392,7 @@ input:focus {
     object-fit: contain;
 }
 
-/* Round 1 Wedding Day */
+/* Round 1 Antigua Wedding */
 .round-photo.portrait-round {
     width: auto;
     max-width: 100%;

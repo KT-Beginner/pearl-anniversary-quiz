@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Challenge 29 - Jamaica</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <main class="app-shell">
+
+        <header class="hero">
+
+            <p class="eyebrow">
+                Challenge 29 of 30
+            </p>
+
+        <h1>
+            <img
+            src="assets/jamaica-flag.jpg"
+            alt="Jamaica flag"
+            class="jamaica-flag"
+        >
+        Jamaica — 30 Years Together
+        </h1>
+
+            <p class="subtitle">
+                Reassemble Louise & Steve's
+                Pearl Anniversary photograph
+            </p>
+
+        </header>
+
+
+        <section class="game-card">
+
+            <div class="photo-puzzle-game">
+
+                <div class="photo-puzzle-layout">
+
+                    <div>
+
+                        <div
+                            id="puzzleGrid"
+                            class="photo-puzzle-grid"
+                        ></div>
+
+                        <p
+                            id="puzzleMessage"
+                            class="photo-puzzle-help"
+                        >
+                            Select two pieces to swap them.
+                        </p>
+
+                    </div>
+
+
+                    <aside class="photo-preview-card">
+
+                        <h3>Finished Picture</h3>
+
+                        <img
+                            src="assets/jamaica-pearl-anniversary.png"
+                            alt="Jamaica 2026 - 30 Years Together"
+                        >
+
+                        <p>
+                            Jamaica 2026<br>
+                            <strong>30 Years Together</strong>
+                        </p>
+
+                    </aside>
+
+                </div>
+
+
+                <div class="actions">
+
+                    
+                    <button
+                        id="giveUp"
+                        class="secondary"
+                        type="button"
+                    >
+                        Give Up 🥥
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        
+        <section
+            id="resultPanel"
+            class="result-panel hidden"
+        >
+
+            <h2 id="resultTitle"></h2>
+
+            <p id="resultText"></p>
+
+            <button
+                id="continueButton"
+                class="primary"
+                type="button"
+            >
+                Continue to Final Challenge ➜
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script src="game.js"></script>
+
+</body>
+</html>

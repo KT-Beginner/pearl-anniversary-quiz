@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Challenge 18 - Through the Years</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <main class="app-shell">
+
+        <header class="hero">
+
+            <p class="eyebrow">
+                Challenge 18 of 30
+            </p>
+
+            <h1>Through the Years</h1>
+
+            <p class="subtitle">
+                Put five special memories into the correct order
+            </p>
+
+        </header>
+
+
+        <section class="game-card">
+
+            <div class="timeline-game">
+
+
+                <p class="mobile-timeline-instruction">
+                    Choose a number for each memory<br>
+                    <strong>1 = Earliest &nbsp; • &nbsp; 5 = Latest</strong>
+                </p>
+
+                <div
+                    id="timelineCards"
+                    class="timeline-cards"
+                ></div>
+
+
+                <div class="timeline-line">
+                    <span>Earlier</span>
+                    <span>Later</span>
+                </div>
+
+
+                <p
+                    id="timelineMessage"
+                    class="timeline-message"
+                >
+                    Select two memory cards to swap them.
+                </p>
+
+
+                <div class="actions">
+
+                    <button
+                        id="checkTimeline"
+                        class="primary timeline-check-button"
+                        type="button"
+                    >
+                        Check Timeline
+                    </button>
+
+                    <button
+                        id="giveUp"
+                        class="secondary"
+                        type="button"
+                    >
+                        Give Up 🥥
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <p class="hint">
+            The dates are hidden. Swap the five memory cards
+            until Louise and Steve's special moments are in
+            chronological order.
+        </p>
+
+
+        <section
+            id="resultPanel"
+            class="result-panel hidden"
+        >
+
+            <h2 id="resultTitle"></h2>
+
+            <p id="resultText"></p>
+
+            <button
+                id="continueButton"
+                class="primary"
+                type="button"
+            >
+                Continue the Anniversary Challenge
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script src="game.js"></script>
+
+</body>
+</html>

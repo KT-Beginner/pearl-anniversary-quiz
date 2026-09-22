@@ -3404,18 +3404,17 @@ if (currentRound().id === 1) {
       "secondary";
 
     giveUpButton.addEventListener(
-      "click",
-      () => {
+  "click",
+  () => {
 
-        sessionStorage.setItem(
-          "pearlWeddingMazeResult",
-          "coconut"
-        );
-
-        window.location.href =
-          "../../quiz.html";
-      }
+    sessionStorage.setItem(
+      "pearlWeddingMazeTimedOut",
+      "true"
     );
+
+    showWeddingMemory();
+  }
+);
 
     ui.overlayButton.insertAdjacentElement(
       "afterend",

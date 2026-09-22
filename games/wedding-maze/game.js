@@ -666,19 +666,11 @@ function isWalkable(x, y) {
   );
 }
 function playCollectionTing() {
-  /*
-    Clone the sound so two closely collected
-    objects can each produce their own ting.
-  */
-
-  const sound =
-    itemTingSound.cloneNode();
-
-  sound.volume =
-    itemTingSound.volume;
+  itemTingSound.pause();
+  itemTingSound.currentTime = 0;
 
   const playRequest =
-    sound.play();
+    itemTingSound.play();
 
   if (playRequest) {
     playRequest.catch(

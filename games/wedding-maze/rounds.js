@@ -15,7 +15,7 @@ window.GAME_ROUNDS = [
     subtitle: "Get Louise & Steve to their wedding on time!",
     locationLabel: "ANTIGUA",
 
-    duration: 60,
+    duration: 90,
 
     /*
       The wedding arch is placed at this maze square.

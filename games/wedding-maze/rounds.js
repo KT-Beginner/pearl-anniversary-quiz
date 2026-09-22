@@ -11,7 +11,7 @@ window.GAME_ROUNDS = [
     id: 1,
     playable: true,
 
-    title: "Antigua — The Wedding",
+    title: "The Wedding",
     subtitle: "Get Louise & Steve to their wedding on time!",
     locationLabel: "ANTIGUA",
 

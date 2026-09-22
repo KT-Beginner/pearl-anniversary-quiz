@@ -3205,7 +3205,7 @@ function showWeddingMemory() {
     "They made it!";
 
   ui.title.textContent =
-    "Antigua — The Wedding complete!";
+    "The Wedding complete!";
 
   ui.text.textContent =
     "Louise and Steve collected everything and made it to their Antigua wedding — right on time!";

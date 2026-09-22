@@ -3126,7 +3126,8 @@ function tryMove() {
   ) {
     state.score += 100;
     finishRound(true);
-    } else if (
+    }
+     else if (
     !goal &&
     !isPackingRound() &&
     !isWordSearchRound() &&
@@ -3239,11 +3240,7 @@ ui.overlayButton.dataset.action =
 }
 
 function startRound() {
-  if (currentRound().id === 1) {
-    prepareRecordedCalypso();
-  }
-
-  if (state.over) {
+    if (state.over) {
     resetRound();
   }
 
@@ -3534,6 +3531,8 @@ document
 canvas.addEventListener(
   "pointerdown",
   event => {
+    event.preventDefault();
+
     touchStart = {
       x: event.clientX,
       y: event.clientY
@@ -3544,6 +3543,8 @@ canvas.addEventListener(
 canvas.addEventListener(
   "pointerup",
   event => {
+    event.preventDefault();
+
     if (!touchStart) {
       return;
     }

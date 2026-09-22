@@ -1837,7 +1837,7 @@ function applyTheme() {
             : isPackingRound()
               ? "Items left to pack"
               : round.id === 1
-                ? "Wedding items left"
+                ? "Items left"
                 : "Pearls left";
 
     ui.hint.textContent =

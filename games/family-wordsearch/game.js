@@ -3639,6 +3639,20 @@ ui.wordSearchGrid.addEventListener(
 
     event.preventDefault();
 
+    if (
+  itemTingSound.paused &&
+  itemTingSound.currentTime === 0
+) {
+  itemTingSound.load();
+}
+
+if (
+  wrongBuzzerSound.paused &&
+  wrongBuzzerSound.currentTime === 0
+) {
+  wrongBuzzerSound.load();
+}
+
     state.wordSearchSelecting = true;
 
     state.wordSearchStart = {

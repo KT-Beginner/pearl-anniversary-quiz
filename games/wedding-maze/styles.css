@@ -135,7 +135,7 @@ body {
 
 .hud {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 
   margin-bottom: 14px;
   gap: 10px;
@@ -1297,7 +1297,7 @@ button {
 
 .pairs-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 
   gap: 10px;
 
@@ -1650,6 +1650,9 @@ button {
 }
 /* Phone layout — give the maze more vertical space */
 @media (max-width: 600px) {
+  .hud {
+  grid-template-columns: repeat(2, 1fr);
+}
   .hero h1,
   .flag-badge {
     display: none;

@@ -3376,8 +3376,7 @@ if (!won) {
         "Try again and complete the Jamaica photograph.";
     } else {
       ui.text.textContent =
-        `Louise and Steve scored ${displayedScore} points. ` +
-        "Try again and get them to the wedding on time.";
+        "You didn't collect everything in time";
     }
 if (currentRound().id === 1) {
 

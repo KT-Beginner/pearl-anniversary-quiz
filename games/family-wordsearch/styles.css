@@ -135,7 +135,7 @@ body {
 
 .hud {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 
   margin-bottom: 14px;
   gap: 10px;
@@ -1298,7 +1298,7 @@ button {
 
 .pairs-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 
   gap: 10px;
 
@@ -1645,5 +1645,11 @@ button {
   .word-search-grid {
     width: 96%;
     margin: 0 auto;
+  }
+}
+/* Family Word Search — two-item phone HUD */
+@media (max-width: 600px) {
+  .hud {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

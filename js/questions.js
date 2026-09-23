@@ -380,7 +380,7 @@ revealImage: "images/quiz/caravan.jpg",
     revealImage: "images/quiz/fred.jpg",
     revealImageAfterAnswer: true,
     photoTitle: "🎵 Right Said Fred",
-    photoText: "I’m Too Sexy… and I’m not even Ten! Christmas 2008"
+    photoText: "I’m Too Sexy… and I’m not even Ten! Kai in 2008"
 },
 {
  round: "🎵 Music Round",

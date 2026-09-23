@@ -176,7 +176,7 @@ window.GAME_ROUNDS = [
     gameType: "wordsearch",
 
     title: "The Family Word Search",
-    subtitle: "Find ten special names hidden among the letters",
+    subtitle: "Find ten special names hidden in the letters",
     locationLabel: "FAMILY",
 
     duration: 90,

@@ -25,6 +25,8 @@ const resultText =
 const continueButton =
     document.getElementById("continueButton");
 
+const keepPlayingButton =
+    document.getElementById("keepPlayingButton");
 
 const pairImages = [
     "assets/memory-1.jpg",
@@ -289,13 +291,21 @@ function startTimer() {
     resultText.textContent =
         "Time's up — but you can keep playing and finish the pairs if you want.";
 
-    giveUpButton.classList.add(
+    giveUpButton.classList.remove(
     "hidden"
 );
 
-    resultPanel.classList.remove(
-        "hidden"
-    );
+keepPlayingButton.classList.remove(
+    "hidden"
+);
+
+continueButton.classList.add(
+    "hidden"
+);
+
+resultPanel.classList.remove(
+    "hidden"
+);
 
     resultPanel.scrollIntoView({
         behavior: "smooth",
@@ -324,6 +334,14 @@ function finishGame() {
 
     giveUpButton.classList.add("hidden");
 
+    keepPlayingButton.classList.add(
+        "hidden"
+    );
+
+    continueButton.classList.remove(
+        "hidden"
+    );
+
     let result;
 
     if (
@@ -348,15 +366,16 @@ function finishGame() {
 
         if (pairsRemaining === 0) {
 
-            resultText.textContent =
-                "You found all eight pairs, but there was a wrong attempt along the way.";
+    resultText.textContent =
+        "You found all eight pairs! A coconut was collected because the timer ran out.";
 
-        } else {
+} else {
 
-            resultText.textContent =
-                "Time ran out before all eight pairs were matched.";
-        }
-    }
+    resultText.textContent =
+        timeLeft <= 0
+            ? "Time ran out before all eight pairs were matched."
+            : "You chose to give up before all eight pairs were matched.";
+}    }
 
     sessionStorage.setItem(
         "pearlPairsResult",
@@ -388,6 +407,27 @@ giveUpButton.addEventListener(
     }
 );
 
+keepPlayingButton.addEventListener(
+    "click",
+    () => {
+
+        resultPanel.classList.add(
+            "hidden"
+        );
+
+        keepPlayingButton.classList.add(
+            "hidden"
+        );
+
+        continueButton.classList.remove(
+            "hidden"
+        );
+
+        giveUpButton.classList.remove(
+            "hidden"
+        );
+    }
+);
 
 continueButton.addEventListener(
     "click",

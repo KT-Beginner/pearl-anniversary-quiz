@@ -1175,6 +1175,7 @@ sessionStorage.removeItem("pearlFamilyWordSearchCounted");
 sessionStorage.removeItem("pearlFamilyWordSearchTimedOut");
 sessionStorage.removeItem("pearlTimelineResult");
 sessionStorage.removeItem("pearlTimelineCounted");
+sessionStorage.removeItem("pearlTimelineFailedAttempt");
 sessionStorage.removeItem("pearlPairsResult");
 sessionStorage.removeItem("pearlPairsCounted");
 sessionStorage.removeItem("pearlJamaicaJigsawResult");
@@ -1729,6 +1730,7 @@ sessionStorage.removeItem("pearlFamilyWordSearchTimedOut");
 
 sessionStorage.removeItem("pearlTimelineResult");
 sessionStorage.removeItem("pearlTimelineCounted");
+sessionStorage.removeItem("pearlTimelineFailedAttempt");
 
 sessionStorage.removeItem("pearlPairsResult");
 sessionStorage.removeItem("pearlPairsCounted");
@@ -1774,6 +1776,7 @@ sessionStorage.removeItem("pearlFamilyWordSearchTimedOut");
 
 sessionStorage.removeItem("pearlTimelineResult");
 sessionStorage.removeItem("pearlTimelineCounted");
+sessionStorage.removeItem("pearlTimelineFailedAttempt");
 
 sessionStorage.removeItem("pearlPairsResult");
 sessionStorage.removeItem("pearlPairsCounted");

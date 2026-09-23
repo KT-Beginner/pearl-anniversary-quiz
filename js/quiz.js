@@ -2018,7 +2018,7 @@ if (
 } else if (
     familyWordSearchResult &&
     familyWordSearchCounted &&
-    currentQuestion === 3
+    currentQuestion === 2
 ) {
 
     currentRound = questions[currentQuestion].round;
@@ -2030,7 +2030,7 @@ if (
     sessionStorage.getItem(
         "pearlTimelineCounted"
     ) === "true" &&
-    currentQuestion === 12
+    currentQuestion === 15
 ) {
 
     currentRound =
@@ -2043,7 +2043,7 @@ if (
     sessionStorage.getItem(
         "pearlPairsCounted"
     ) === "true" &&
-    currentQuestion === 19
+    currentQuestion === 21
 ) {
 
     currentRound =

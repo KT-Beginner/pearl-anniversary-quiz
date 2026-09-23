@@ -1631,3 +1631,19 @@ button {
 .progress {
   display: none;
 }
+
+/* Family Word Search — phone layout */
+@media (max-width: 600px) {
+  .hero h1 {
+    display: none;
+  }
+
+  .hero {
+    margin-bottom: 6px;
+  }
+
+  .word-search-grid {
+    width: 96%;
+    margin: 0 auto;
+  }
+}

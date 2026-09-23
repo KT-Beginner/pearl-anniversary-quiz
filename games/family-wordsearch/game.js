@@ -3651,7 +3651,7 @@ if (
   wrongBuzzerSound.currentTime === 0
 ) {
   wrongBuzzerSound.load();
-}
+} 
 
     state.wordSearchSelecting = true;
 

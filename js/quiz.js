@@ -1,5 +1,5 @@
 // Redirect anyone who hasn't unlocked the quiz
-if (sessionStorage.getItem("diamondQuizUnlocked") !== "true") {
+if (sessionStorage.getItem("pearlQuizUnlocked") !== "true") {
     window.location.href = "index.html";
 }
 // ==========================================
@@ -1160,13 +1160,29 @@ viewSlideshowButton.addEventListener("click", () => {
 
 playAgainButton.addEventListener("click", () => {
 
-sessionStorage.removeItem("diamondQuizUnlocked");
+sessionStorage.removeItem("pearlQuizUnlocked");
 
 sessionStorage.removeItem("quizCurrentQuestion");
-
 sessionStorage.removeItem("quizScore");
-
 sessionStorage.removeItem("quizPlayerAnswers");
+sessionStorage.removeItem("pearlCocktails");
+sessionStorage.removeItem("pearlCoconuts");
+sessionStorage.removeItem("pearlWeddingMazeResult");
+sessionStorage.removeItem("pearlWeddingMazeCounted");
+sessionStorage.removeItem("pearlWeddingMazeTimedOut");
+sessionStorage.removeItem("pearlFamilyWordSearchResult");
+sessionStorage.removeItem("pearlFamilyWordSearchCounted");
+sessionStorage.removeItem("pearlFamilyWordSearchTimedOut");
+sessionStorage.removeItem("pearlTimelineResult");
+sessionStorage.removeItem("pearlTimelineCounted");
+sessionStorage.removeItem("pearlPairsResult");
+sessionStorage.removeItem("pearlPairsCounted");
+sessionStorage.removeItem("pearlJamaicaJigsawResult");
+sessionStorage.removeItem("pearlJamaicaJigsawCounted");
+sessionStorage.removeItem("slideshowActive");
+sessionStorage.removeItem("slideshowIndex");
+sessionStorage.removeItem("slideshowPaused");
+
 
 window.location.href = "index.html";
 
@@ -1693,13 +1709,37 @@ function showSlideshowEnding() {
             "click",
             () => {
                 sessionStorage.removeItem(
-                    "diamondQuizUnlocked"
+                    "pearlQuizUnlocked"
                 );
                 sessionStorage.removeItem("quizCurrentQuestion");
 
 sessionStorage.removeItem("quizScore");
 
 sessionStorage.removeItem("quizPlayerAnswers");
+sessionStorage.removeItem("pearlCocktails");
+sessionStorage.removeItem("pearlCoconuts");
+
+sessionStorage.removeItem("pearlWeddingMazeResult");
+sessionStorage.removeItem("pearlWeddingMazeCounted");
+sessionStorage.removeItem("pearlWeddingMazeTimedOut");
+
+sessionStorage.removeItem("pearlFamilyWordSearchResult");
+sessionStorage.removeItem("pearlFamilyWordSearchCounted");
+sessionStorage.removeItem("pearlFamilyWordSearchTimedOut");
+
+sessionStorage.removeItem("pearlTimelineResult");
+sessionStorage.removeItem("pearlTimelineCounted");
+
+sessionStorage.removeItem("pearlPairsResult");
+sessionStorage.removeItem("pearlPairsCounted");
+
+sessionStorage.removeItem("pearlJamaicaJigsawResult");
+sessionStorage.removeItem("pearlJamaicaJigsawCounted");
+
+sessionStorage.removeItem("slideshowActive");
+sessionStorage.removeItem("slideshowIndex");
+sessionStorage.removeItem("slideshowPaused");
+
 
                 window.location.href =
                     "index.html";
@@ -1714,13 +1754,36 @@ sessionStorage.removeItem("quizPlayerAnswers");
             "click",
             () => {
                 sessionStorage.removeItem(
-                    "diamondQuizUnlocked"
+                    "pearlQuizUnlocked"
                 );
                 sessionStorage.removeItem("quizCurrentQuestion");
 
 sessionStorage.removeItem("quizScore");
 
 sessionStorage.removeItem("quizPlayerAnswers");
+sessionStorage.removeItem("pearlCocktails");
+sessionStorage.removeItem("pearlCoconuts");
+
+sessionStorage.removeItem("pearlWeddingMazeResult");
+sessionStorage.removeItem("pearlWeddingMazeCounted");
+sessionStorage.removeItem("pearlWeddingMazeTimedOut");
+
+sessionStorage.removeItem("pearlFamilyWordSearchResult");
+sessionStorage.removeItem("pearlFamilyWordSearchCounted");
+sessionStorage.removeItem("pearlFamilyWordSearchTimedOut");
+
+sessionStorage.removeItem("pearlTimelineResult");
+sessionStorage.removeItem("pearlTimelineCounted");
+
+sessionStorage.removeItem("pearlPairsResult");
+sessionStorage.removeItem("pearlPairsCounted");
+
+sessionStorage.removeItem("pearlJamaicaJigsawResult");
+sessionStorage.removeItem("pearlJamaicaJigsawCounted");
+
+sessionStorage.removeItem("slideshowActive");
+sessionStorage.removeItem("slideshowIndex");
+sessionStorage.removeItem("slideshowPaused");
 
                 window.location.href =
                     "index.html";

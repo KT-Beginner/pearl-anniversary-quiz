@@ -43,7 +43,7 @@ const enteredHash = await hashPassword(enteredPassword);
 
 if (enteredHash === quizPasswordHash) {
 
-sessionStorage.setItem("diamondQuizUnlocked", "true");
+sessionStorage.setItem("pearlQuizUnlocked", "true");
 
 document.body.classList.remove("quiz-locked");
 
@@ -65,7 +65,7 @@ passwordInput.focus();
 
     const container = document.querySelector(".container");
 
-if (sessionStorage.getItem("diamondQuizUnlocked") === "true") {
+if (sessionStorage.getItem("pearlQuizUnlocked") === "true") {
     document.body.classList.remove("quiz-locked");
     passwordGate.style.display = "none";
     container.style.display = "block";

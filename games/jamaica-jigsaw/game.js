@@ -262,7 +262,7 @@ function finishPuzzle() {
             "🍹 Cocktail earned!";
 
         resultText.textContent =
-            "Perfect! You completed the Jamaica jigsaw on your first check.";
+            "Perfect! You completed the Jamaica jigsaw on your first try.";
 
     }
 

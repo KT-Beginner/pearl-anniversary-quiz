@@ -12,7 +12,7 @@ window.GAME_ROUNDS = [
     playable: true,
 
     title: "The Wedding",
-    subtitle: "Get them to their wedding on time!",
+    subtitle: "",
     locationLabel: "ANTIGUA",
 
     duration: 90,

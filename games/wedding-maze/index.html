@@ -49,35 +49,18 @@
     </header>
 
     <section class="game-card">
-     <div class="hud">
-  <div style="display:none;">
-    <span class="label">Challenge</span>
-    <strong id="roundLabel"></strong>
-  </div>
+     
+      <div style="display:none;">
+        <span id="roundLabel"></span>
+        <span id="score">0</span>
+      </div>
 
-  <div style="display:none;">
-    <span class="label">Score</span>
-    <strong id="score">0</strong>
-  </div>
-
-  <div>
-    <span class="label">Time</span>
-
-    <strong>
-      <span id="timer">60</span>s
-    </strong>
-  </div>
-
-  <div>
-    <span
-      id="collectiblesLabel"
-      class="label">
-      Items left
-    </span>
-
-    <strong id="remaining">0</strong>
-  </div>
-</div>
+      <div
+        id="collectionMessage"
+        class="collection-message"
+        aria-live="polite">
+        Collect all the wedding items!
+      </div>
 
       <div class="canvas-wrap">
         <canvas
@@ -87,12 +70,26 @@
           aria-label="Louise and Steve anniversary maze game">
         </canvas>
 
-        <div class="controls" aria-label="Maze controls">
-          <button type="button" class="control up" data-dir="up" aria-label="Move up">▲</button>
-          <button type="button" class="control left" data-dir="left" aria-label="Move left">◀</button>
-          <button type="button" class="control down" data-dir="down" aria-label="Move down">▼</button>
-          <button type="button" class="control right" data-dir="right" aria-label="Move right">▶</button>
-        </div>
+        <div class="maze-phone-panel">
+
+  <div class="maze-stat">
+    <span class="label">Time</span>
+    <strong><span id="timer">60</span>s</strong>
+  </div>
+
+  <div class="controls" aria-label="Maze controls">
+    <button type="button" class="control up" data-dir="up" aria-label="Move up">▲</button>
+    <button type="button" class="control left" data-dir="left" aria-label="Move left">◀</button>
+    <button type="button" class="control down" data-dir="down" aria-label="Move down">▼</button>
+    <button type="button" class="control right" data-dir="right" aria-label="Move right">▶</button>
+  </div>
+
+  <div class="maze-stat">
+    <span id="collectiblesLabel" class="label">Items left</span>
+    <strong id="remaining">0</strong>
+  </div>
+
+</div>
       </div>
 
       <section id="packingGame" class="packing-game hidden" aria-label="Suitcase packing game">
@@ -214,12 +211,7 @@
         </div>
       </section>
 
-      <div
-        id="collectionMessage"
-        class="collection-message"
-        aria-live="polite">
-        Collect everything needed for the wedding!
-      </div>
+
 
 <div class="actions">
   <button

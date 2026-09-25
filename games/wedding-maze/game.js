@@ -2126,7 +2126,7 @@ function resetRound() {
     );
   } else if (round.id === 1) {
     setCollectionMessage(
-      "Collect everything Louise and Steve need for their wedding!"
+      "Collect all the wedding items!"
     );
   } else {
     setCollectionMessage(

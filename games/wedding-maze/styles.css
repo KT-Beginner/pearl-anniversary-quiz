@@ -1680,3 +1680,27 @@ button {
   }
 
 }
+/* Wedding Maze direction buttons — phone only */
+
+@media (min-width: 601px) {
+  .controls {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .controls {
+    width: 240px;
+    margin: 12px auto 0;
+    gap: 10px;
+  }
+
+  .control {
+    min-height: 58px;
+    font-size: 1.6rem;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+  }
+}

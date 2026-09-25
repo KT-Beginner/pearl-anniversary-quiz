@@ -72,12 +72,12 @@ window.GAME_ROUNDS = [
         points: 15
       },
       {
-        name: "wedding witness - Andrea",
+        name: "witness - Andrea",
         symbol: "👩",
         points: 20
       },
       {
-        name: "wedding witness - Paul",
+        name: "witness - Paul",
         symbol: "👨",
         points: 20
       },

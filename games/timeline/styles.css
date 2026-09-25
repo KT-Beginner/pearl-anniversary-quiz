@@ -425,11 +425,42 @@ button {
     grid-template-columns: repeat(2, 1fr);
 }
 
+.mobile-timeline-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+
+.mobile-timeline-actions .actions {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;
+    margin: 0;
+    gap: 12px;
+}
+
+.mobile-timeline-actions .primary,
+.mobile-timeline-actions .secondary {
+    width: 100%;
+    padding: 12px 8px;
+}
+
+.mobile-timeline-actions .timeline-check-button {
+    margin-top: 0;
+}
+
     .timeline-line {
     display: none;
 }
 .timeline-message {
-    display: none;
+    display: block;
+    min-height: 0;
+    margin: 8px 0 0;
+    font-size: 0.78rem;
+    line-height: 1.25;
+    text-align: center;
 }
 }
 @media (max-width: 650px) {

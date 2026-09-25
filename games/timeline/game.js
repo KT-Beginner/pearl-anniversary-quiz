@@ -4,11 +4,21 @@ const timelineCards =
 const timelineMessage =
     document.getElementById("timelineMessage");
 
+if (window.innerWidth <= 700) {
+    timelineMessage.textContent = "";
+}    
+
 const checkTimelineButton =
     document.getElementById("checkTimeline");
 
 const giveUpButton =
     document.getElementById("giveUp");
+
+const mobileTimelineActions =
+    document.getElementById("mobileTimelineActions");
+
+const actions =
+    document.querySelector(".actions");    
 
 const resultPanel =
     document.getElementById("resultPanel");
@@ -21,6 +31,28 @@ const resultText =
 
 const continueButton =
     document.getElementById("continueButton");
+
+function positionTimelineActions() {
+
+    if (window.innerWidth <= 700) {
+
+        mobileTimelineActions.appendChild(actions);
+
+    } else {
+
+        timelineMessage.insertAdjacentElement(
+            "afterend",
+            actions
+        );
+    }
+}
+
+positionTimelineActions();
+
+window.addEventListener(
+    "resize",
+    positionTimelineActions
+);    
 
 
 /*
@@ -263,6 +295,18 @@ card.appendChild(numberChoices);
 
         timelineCards.appendChild(card);
     });
+    if (
+    window.innerWidth <= 700 &&
+    mobileTimelineActions
+) {
+    timelineCards.appendChild(
+        mobileTimelineActions
+    );
+
+    mobileTimelineActions.appendChild(
+        actions
+    );
+}
 }
 
 
@@ -618,8 +662,10 @@ function startTimeline() {
     displayTimelineCards();
 
 
+   if (window.innerWidth > 700) {
     timelineMessage.textContent =
         "Select two cards to swap them, then check the timeline.";
+}
 }
 
 

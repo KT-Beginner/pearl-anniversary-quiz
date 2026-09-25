@@ -143,36 +143,61 @@
 
             data.results.forEach((result, index) => {
 
-                questionResults += `
-                    <div class="question-result">
+    if (result.type === "game") {
 
-                        <h3>
-                            ${index + 1}. ${result.question}
-                        </h3>
+        questionResults += `
+            <div class="question-result">
 
-                        <p>
-                            <strong>Your answer:</strong>
-                            ${result.selectedAnswer}
-                        </p>
+                <h3>
+                    Challenge ${index + 1}: ${result.name}
+                </h3>
 
-                        <p>
-                            <strong>Correct answer:</strong>
-                            ${result.correctAnswer}
-                        </p>
+                <p class="${result.result === "cocktail"
+                    ? "correct"
+                    : "incorrect"}">
 
-                        <p class="${result.isCorrect
-                            ? "correct"
-                            : "incorrect"}">
+                    ${result.result === "cocktail"
+                        ? "🍹 Cocktail"
+                        : "🥥 Coconut"}
 
-                            ${result.isCorrect
-                                ? "✅ Correct"
-                                : "❌ Incorrect"}
+                </p>
 
-                        </p>
+            </div>
+        `;
 
-                    </div>
-                `;
-            });
+    } else {
+
+        questionResults += `
+            <div class="question-result">
+
+                <h3>
+                    Challenge ${index + 1}: ${result.question}
+                </h3>
+
+                <p>
+                    <strong>Your answer:</strong>
+                    ${result.selectedAnswer}
+                </p>
+
+                <p>
+                    <strong>Correct answer:</strong>
+                    ${result.correctAnswer}
+                </p>
+
+                <p class="${result.result === "cocktail"
+                    ? "correct"
+                    : "incorrect"}">
+
+                    ${result.result === "cocktail"
+                        ? "🍹 Cocktail"
+                        : "🥥 Coconut"}
+
+                </p>
+
+            </div>
+        `;
+    }
+});
 
             container.innerHTML = `
 
@@ -187,8 +212,11 @@
 
                         ${data.playerName}<br>
 
-                        Score:
-                        ${data.score} / ${data.total}
+                        🍹 ${data.cocktails}
+                        ${data.cocktails === 1 ? "Cocktail" : "Cocktails"}
+                        &nbsp; · &nbsp;
+                        🥥 ${data.coconuts}
+                        ${data.coconuts === 1 ? "Coconut" : "Coconuts"}
 
                     </div>
 

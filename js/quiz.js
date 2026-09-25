@@ -12,7 +12,7 @@ const playerName = localStorage.getItem("playerName") || "Guest";
 
 // Quiz state - restore progress after an accidental refresh
 
-let currentQuestion = Number(sessionStorage.getItem("quizCurrentQuestion")) || 0;
+let currentQuestion = Number(sessionStorage.getItem("quizCurrentQuestion")) || 24;
 
 let score = Number(sessionStorage.getItem("quizScore")) || 0;
 
@@ -1119,32 +1119,87 @@ const printResultsButton =
 
 printResultsButton.addEventListener("click", () => {
 
-    const resultsData = {
-        playerName: playerName,
-        score: score,
-        total: questions.length,
+    const challengeResults = [];
 
-        results: questions.map((q, index) => {
+const gameChallenges = {
+    0: {
+        name: "Wedding Maze",
+        result: sessionStorage.getItem(
+            "pearlWeddingMazeResult"
+        )
+    },
 
-            const selectedAnswerIndex = playerAnswers[index];
-            const correctAnswerIndex = q.correct;
+    2: {
+        name: "Family Word Search",
+        result: sessionStorage.getItem(
+            "pearlFamilyWordSearchResult"
+        )
+    },
 
-            return {
-                question: q.question,
+    15: {
+        name: "Timeline",
+        result: sessionStorage.getItem(
+            "pearlTimelineResult"
+        )
+    },
 
-                selectedAnswer:
-                    selectedAnswerIndex !== undefined
-                        ? q.answers[selectedAnswerIndex]
-                        : "No answer",
+    21: {
+        name: "Pairs",
+        result: sessionStorage.getItem(
+            "pearlPairsResult"
+        )
+    }
+};
 
-                correctAnswer:
-                    q.answers[correctAnswerIndex],
+questions.forEach((q, index) => {
 
-                isCorrect:
-                    selectedAnswerIndex === correctAnswerIndex
-            };
-        })
-    };
+    if (gameChallenges[index]) {
+        challengeResults.push({
+            type: "game",
+            name: gameChallenges[index].name,
+            result: gameChallenges[index].result
+        });
+    }
+
+    const selectedAnswerIndex =
+        playerAnswers[index];
+
+    challengeResults.push({
+        type: "question",
+        question: q.question,
+
+        selectedAnswer:
+            selectedAnswerIndex !== undefined
+                ? q.answers[selectedAnswerIndex]
+                : "No answer",
+
+        correctAnswer:
+            q.answers[q.correct],
+
+        result:
+            selectedAnswerIndex === q.correct
+                ? "cocktail"
+                : "coconut"
+    });
+
+    if (index === questions.length - 2) {
+        challengeResults.push({
+            type: "game",
+            name: "Jamaica Jigsaw",
+            result: sessionStorage.getItem(
+                "pearlJamaicaJigsawResult"
+            )
+        });
+    }
+});
+
+const resultsData = {
+    playerName: playerName,
+    cocktails: cocktails,
+    coconuts: coconuts,
+    total: 30,
+    results: challengeResults
+};
 
     localStorage.setItem(
         "pearlQuizResults",

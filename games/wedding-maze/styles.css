@@ -1710,30 +1710,36 @@ button {
 @media (max-width: 600px) {
 
   .maze-phone-panel {
-    display: grid;
-    grid-template-columns: minmax(55px, 1fr) 200px minmax(55px, 1fr);
-    align-items: start;
-
+    position: relative;
     width: 100%;
     margin: 6px auto 8px;
-
-    gap: 6px;
   }
 
   .maze-phone-panel .controls {
     width: 200px;
-    margin: 0;
+    margin: 0 auto;
   }
 
   .maze-stat {
-    padding-top: 8px;
+    position: absolute;
+    top: 8px;
+    width: 58px;
     text-align: center;
+  }
+
+  .maze-stat:first-child {
+    left: 0;
+  }
+
+  .maze-stat:last-child {
+    right: 0;
   }
 
   .maze-stat .label {
     display: block;
-    font-size: 0.65rem;
-  }
+    font-size: 0.58rem;
+    white-space: nowrap;
+}
 
   .maze-stat strong {
     display: block;

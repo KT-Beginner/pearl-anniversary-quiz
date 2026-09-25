@@ -1851,7 +1851,7 @@ function applyTheme() {
             ? "Drag from the first letter to the last letter of each name"
             : isPackingRound()
               ? "Click or tap items to pack"
-              : "Arrow keys or WASD on a computer • swipe across the maze on a phone";
+              : "Use arrow keys or swipe across the maze";
 }
 
 function renderProgress() {

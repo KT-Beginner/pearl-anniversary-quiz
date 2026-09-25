@@ -1705,13 +1705,13 @@ button {
   }
 }
 
-/* Compact phone controls for Wedding Maze */
+/* Compact phone controls for Wedding Maze */ 
 
 @media (max-width: 600px) {
 
   .maze-phone-panel {
     display: grid;
-    grid-template-columns: 1fr 240px 1fr;
+    grid-template-columns: minmax(55px, 1fr) 200px minmax(55px, 1fr);
     align-items: start;
 
     width: 100%;
@@ -1721,7 +1721,7 @@ button {
   }
 
   .maze-phone-panel .controls {
-    width: 240px;
+    width: 200px;
     margin: 0;
   }
 

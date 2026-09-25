@@ -1704,3 +1704,9 @@ button {
     -webkit-touch-callout: none;
   }
 }
+/* Keep maze controls clear of Safari's bottom toolbar */
+@media (max-width: 600px) {
+  .controls {
+    margin-bottom: 70px;
+  }
+}

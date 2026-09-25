@@ -181,22 +181,22 @@ const questions = [
 },
 { 
     round: "👨‍👩‍👧 Family",
-    question: "Which WWE superstar originally introduced this famous 'Spinner' Championship belt?",
+    question: "What was this 'Spinner' Championship belt awarded for?",
     image: "images/quiz/belt.jpg",
     caption: "Kai 'CHAMP' Biggin 2007",
      revealImageAfterAnswer: true,
     revealImage: "images/quiz/wwe.jpg",
     
     answers: [
-        "The Rock",
-        "Randy Orton",
-        "Triple H",
-        "John Cena"
+        "Boxing",
+        "Weightlifting",
+        "Martial Arts",
+        "Wrestling"
     ],
     correct: 3,
 
-    photoTitle: "🏆 WWE created the belt for John Cena",
-    photoText: "The other stars wore the same belt after him until The Rock introduced a new design in 2013" 
+    photoTitle: "🤼 Wrestling",
+    photoText: "🏆 WWE created the belt for John Cena" 
 },
 {
     round: "🏖️ Holidays",

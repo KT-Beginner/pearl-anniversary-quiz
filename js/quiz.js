@@ -12,7 +12,7 @@ const playerName = localStorage.getItem("playerName") || "Guest";
 
 // Quiz state - restore progress after an accidental refresh
 
-let currentQuestion = Number(sessionStorage.getItem("quizCurrentQuestion")) || 0   ;
+let currentQuestion = Number(sessionStorage.getItem("quizCurrentQuestion")) || 0;
 
 let score = Number(sessionStorage.getItem("quizScore")) || 0;
 
@@ -1227,7 +1227,7 @@ imageModal.addEventListener("click", (e) => {
 // Final photo slideshow
 
 const slideshowImages = Array.from(
-    { length: 103 },
+    { length: 105 },
     (_, index) => `images/slideshow/slide${index + 1}.jpg`
 );
 
